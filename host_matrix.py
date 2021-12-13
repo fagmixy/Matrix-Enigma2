@@ -30,11 +30,11 @@ fncs_search = ['showsearch','myshowsearchmovie','myshowsearchserie','showmoviess
 
 def getinfo():	
     info_={}
-    info_['name']='matrix'
+    info_['name']='Matrix'
     info_['version']='1.0 11/11/2019'
     info_['dev']='RGYSOFT'
     info_['cat_id']='902'
-    info_['desc']='matrix (KODI Addon)'
+    info_['desc']='Matrix (KODI Addon)'
     info_['icon']='https://i.ibb.co/wJ5k47d/icon.png'
     return info_
     
@@ -58,7 +58,7 @@ def get_url_meta(URL):
 
 def getHosts():	
     Hosts=[]
-    Hosts.append(('26','LIVETV','livetv'             ,'1.0 18/01/2021','Live Sports'              ,'New Host',''))	
+#   Hosts.append(('26','LIVETV','livetv'             ,'1.0 18/01/2021','Live Sports'              ,'New Host',''))	
 #    Hosts.append(('26','','adkami_com'         ,'1.0 18/01/2021','Animés, Mangas & Séries'  ,'New Host',''))	
 #    Hosts.append(('26','','animecomplet'       ,'1.0 18/01/2021','Series & Anime'           ,'New Host',''))
     
