@@ -35,14 +35,7 @@ def load():
 	oOutputParameterHandler = cOutputParameterHandler()
 	oOutputParameterHandler.addParameter('siteUrl', URL_SEARCH[0])
 	oGui.addDir(SITE_IDENTIFIER, 'showSearch', 'Search Movies', 'search.png', oOutputParameterHandler)
-     
-#    oOutputParameterHandler.addParameter('siteUrl', MOVIE_GENRES[0])
-#    oGui.addDir(SITE_IDENTIFIER, MOVIE_GENRES[1], 'أقسام الموقع', 'icon.png', oOutputParameterHandler)
-
-#   oOutputParameterHandler = cOutputParameterHandler()
-#   oOutputParameterHandler.addParameter('siteUrl', MOVIE_PACK[0])
-#   oGui.addDir(SITE_IDENTIFIER, 'showPack', 'Home', 'film.png', oOutputParameterHandler)					
-
+					
 	oGui.setEndOfDirectory()
 
 def showMenuMovies():

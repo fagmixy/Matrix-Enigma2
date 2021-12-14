@@ -23,7 +23,6 @@ SERIE_AR = (URL_MAIN + '/mosalsalat-3arabia/', 'showSeries')
 SERIE_ASIA = (URL_MAIN + '/mosalsalat-korea/', 'showSeries')
 SERIE_LATIN = (URL_MAIN + '/mosalsalat-latinia/', 'showSeries')
 REPLAYTV_NEWS = (URL_MAIN + '/programme-tv/', 'showSeries')
-SERIE_GENRES = (True, 'showGenres')
 
 URL_SEARCH = (URL_MAIN + '/q/', 'showSeriesSearch')
 FUNCTION_SEARCH = 'showSeriesSearch'
@@ -86,7 +85,11 @@ def load():
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', 'https://a.tvfun.me/ts,hidden-camera/')
     oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'الكاميرا الخفية', 'mslsl.png', oOutputParameterHandler)
-            
+    
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', REPLAYTV_NEWS[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'برامج تلفزيونية', 'brmg.png', oOutputParameterHandler)
+    
     oGui.setEndOfDirectory()
  
 def showSearch():

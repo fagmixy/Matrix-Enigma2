@@ -52,33 +52,37 @@ def load():
 #    oOutputParameterHandler.addParameter('siteUrl', SERIE_GENRES[0])
 #    oGui.addDir(SITE_IDENTIFIER, SERIE_GENRES[1], 'مسلسلات', 'mslsl.png', oOutputParameterHandler) 
  
-#    oOutputParameterHandler = cOutputParameterHandler()
-#    oOutputParameterHandler.addParameter('siteUrl', MOVIE_EN[0])
-#    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام أجنبية', 'film.png', oOutputParameterHandler)
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', MOVIE_EN[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام أجنبية', 'film.png', oOutputParameterHandler)
    
-#    oOutputParameterHandler = cOutputParameterHandler()
-#    oOutputParameterHandler.addParameter('siteUrl', MOVIE_AR[0])
-#    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام عربية', 'film.png', oOutputParameterHandler)
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', MOVIE_AR[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام عربية', 'film.png', oOutputParameterHandler)
  
-#    oOutputParameterHandler = cOutputParameterHandler()
-#    oOutputParameterHandler.addParameter('siteUrl', MOVIE_ASIAN[0])
-#    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام أسيوية', 'film.png', oOutputParameterHandler)
-      
-#    oOutputParameterHandler = cOutputParameterHandler()
-#    oOutputParameterHandler.addParameter('siteUrl', MOVIE_HI[0])
-#    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام هندية', 'film.png', oOutputParameterHandler)
-      
-#    oOutputParameterHandler = cOutputParameterHandler()
-#    oOutputParameterHandler.addParameter('siteUrl', MOVIE_CLASSIC[0])
-#    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام كلاسيكية', 'film.png', oOutputParameterHandler)
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', MOVIE_ASIAN[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام أسيوية', 'film.png', oOutputParameterHandler)
+   
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', MOVIE_HI[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام هندية', 'film.png', oOutputParameterHandler)
+    
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', MOVIE_CLASSIC[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام كلاسيكية', 'film.png', oOutputParameterHandler)
 
-#    oOutputParameterHandler = cOutputParameterHandler()
-#    oOutputParameterHandler.addParameter('siteUrl', MOVIE_DUBBED[0])
-#    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام مدبلجة', 'film.png', oOutputParameterHandler) 
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', MOVIE_DUBBED[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام مدبلجة', 'film.png', oOutputParameterHandler) 
  
-#    oOutputParameterHandler = cOutputParameterHandler()
-#    oOutputParameterHandler.addParameter('siteUrl', DOC_NEWS[0])
-#    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'برامج وثائقية', 'doc.png', oOutputParameterHandler 
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', KID_MOVIES[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام كرتون', 'crtoon.png', oOutputParameterHandler)   
+    
+#   oOutputParameterHandler = cOutputParameterHandler()
+#   oOutputParameterHandler.addParameter('siteUrl', DOC_NEWS[0])
+#   oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'برامج وثائقية', 'doc.png', oOutputParameterHandler 
  
     oGui.setEndOfDirectory() 
     
@@ -98,13 +102,13 @@ def showGenres():
     sUrl = oInputParameterHandler.getValue('siteUrl')
  
     liste = []
-    liste.append( ["افلام اجنبية",URL_MAIN + '/category/افلام/افلام-اجنبية/'] )  
-    liste.append( ["أفلام عربية",URL_MAIN + '/category/افلام/افلام-عربية/'] ) 
-    liste.append( ["أفلام هندية",URL_MAIN + '/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d9%87%d9%86%d8%af%d9%8a%d8%a9/'] ) 
-    liste.append( ["أفلام أسيوية",URL_MAIN + '/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%a7%d8%b3%d9%8a%d9%88%d9%8a%d8%a9/'] ) 
-    liste.append( ["أفلام كلاسيكية",URL_MAIN + '/tag/%D8%A7%D9%81%D9%84%D8%A7%D9%85-%D9%83%D9%84%D8%A7%D8%B3%D9%8A%D9%83%D9%8A%D8%A9'] ) 
-    liste.append( ["أفلام مدبلجة",URL_MAIN + '/tag/%D8%A7%D9%81%D9%84%D8%A7%D9%85-%D9%85%D8%AF%D8%A8%D9%84%D8%AC%D8%A9'] ) 
-    liste.append( ["أفلام كرتون",URL_MAIN + '/category/%d8%a7%d9%84%d8%a7%d9%86%d9%8a%d9%85%d9%8a%d8%b4%d9%86/'] ) 
+#    liste.append( ["افلام اجنبية",URL_MAIN + '/category/افلام/افلام-اجنبية/'] )  
+#    liste.append( ["أفلام عربية",URL_MAIN + '/category/افلام/افلام-عربية/'] ) 
+#    liste.append( ["أفلام هندية",URL_MAIN + '/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d9%87%d9%86%d8%af%d9%8a%d8%a9/'] ) 
+#    liste.append( ["أفلام أسيوية",URL_MAIN + '/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%a7%d8%b3%d9%8a%d9%88%d9%8a%d8%a9/'] ) 
+#    liste.append( ["أفلام كلاسيكية",URL_MAIN + '/tag/%D8%A7%D9%81%D9%84%D8%A7%D9%85-%D9%83%D9%84%D8%A7%D8%B3%D9%8A%D9%83%D9%8A%D8%A9'] ) 
+#    liste.append( ["أفلام مدبلجة",URL_MAIN + '/tag/%D8%A7%D9%81%D9%84%D8%A7%D9%85-%D9%85%D8%AF%D8%A8%D9%84%D8%AC%D8%A9'] ) 
+#    liste.append( ["أفلام كرتون",URL_MAIN + '/category/%d8%a7%d9%84%d8%a7%d9%86%d9%8a%d9%85%d9%8a%d8%b4%d9%86/'] ) 
     liste.append( ["برامج وثائقية",URL_MAIN + '/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d9%88%d8%ab%d8%a7%d8%a6%d9%82%d9%8a%d8%a9/'] ) 
     liste.append( ["مسلسلات عربية",URL_MAIN + '/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%b9%d8%b1%d8%a8%d9%8a%d8%a9/'] ) 
     liste.append( ["مسلسلات تركية",URL_MAIN + '/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%aa%d8%b1%d9%83%d9%8a%d8%a9/'] ) 

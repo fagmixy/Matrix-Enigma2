@@ -18,7 +18,6 @@ SITE_DESC = 'arabic vod'
 URL_MAIN = 'https://rotana.net'
 
 MOVIE_AR = ('https://rotana.net/vod-movies', 'showMovies')
-MOVIE_GENRES = (True, 'showGenres')
 URL_SEARCH = ('https://rotana.net/?s=', 'showSeries')
 URL_SEARCH_MOVIES = ('https://rotana.net/?s=', 'showMoviesSearch')
 FUNCTION_SEARCH = 'showSeries'
@@ -34,8 +33,33 @@ def load():
     oOutputParameterHandler.addParameter('siteUrl', MOVIE_AR[0])
     oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام عربية', 'film.png', oOutputParameterHandler)
 
-    oOutputParameterHandler.addParameter('siteUrl', MOVIE_GENRES[0])
-    oGui.addDir(SITE_IDENTIFIER, MOVIE_GENRES[1], 'أقسام الموقع', 'icon.png', oOutputParameterHandler)
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', "https://rotana.net/movies-genres/%d8%a3%d9%83%d8%b4%d9%86/")
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أكشن', 'film.png', oOutputParameterHandler)
+ 
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', "https://rotana.net/movies-genres/%d8%af%d8%b1%d8%a7%d9%85%d8%a7/")
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'دراما', 'film.png', oOutputParameterHandler)
+ 
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', "https://rotana.net/movies-genres/%d8%b1%d9%88%d9%85%d8%a7%d9%86%d8%b3%d9%8a/")
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'رومانسي', 'film.png', oOutputParameterHandler)
+ 
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', "https://rotana.net/movies-genres/%d9%83%d9%88%d9%85%d9%8a%d8%af%d9%8a%d8%a7/")
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'كوميديا', 'film.png', oOutputParameterHandler)
+    
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', "https://rotana.net/vod-short-movies")
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام قصيرة', 'film.png', oOutputParameterHandler)
+   
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', "https://rotana.net/vod-series-2")
+    oGui.addDir(SITE_IDENTIFIER, 'showSerie', 'مسلسلات عربية', 'mslsl.png', oOutputParameterHandler)
+ 
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', "https://rotana.net/theatrical-plays")
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'مسرحيات', 'msrh.png', oOutputParameterHandler)
  
     oGui.setEndOfDirectory()
  
@@ -48,29 +72,6 @@ def showSearch():
         showMoviesSearch(sUrl)
         oGui.setEndOfDirectory()
         return
-
-def showGenres():
-    oGui = cGui()
-    oInputParameterHandler = cInputParameterHandler()
-    sUrl = oInputParameterHandler.getValue('siteUrl')
- 
-    liste = []
-    liste.append( ["أكشن","https://rotana.net/movies-genres/%d8%a3%d9%83%d8%b4%d9%86/"] )
-    liste.append( ["دراما","https://rotana.net/movies-genres/%d8%af%d8%b1%d8%a7%d9%85%d8%a7/"] )
-    liste.append( ["رومانسي","https://rotana.net/movies-genres/%d8%b1%d9%88%d9%85%d8%a7%d9%86%d8%b3%d9%8a/"] )
-    liste.append( ["كوميديا","https://rotana.net/movies-genres/%d9%83%d9%88%d9%85%d9%8a%d8%af%d9%8a%d8%a7/"] )
-    liste.append( ["المسرحيات","https://rotana.net/theatrical-plays"] )
-    liste.append( ["أفلام قصيرة","https://rotana.net/vod-short-movies"] )
-    liste.append( ["المسلسلات","https://rotana.net/vod-series-2"] )
-    liste.append( ["الأفلام","https://rotana.net/vod-movies"] )
-    	            
-    for sTitle,sUrl in liste:
-        
-        oOutputParameterHandler = cOutputParameterHandler()
-        oOutputParameterHandler.addParameter('siteUrl', sUrl)
-        oGui.addDir(SITE_IDENTIFIER, 'showMovies', sTitle, 'genres.png', oOutputParameterHandler)
-       
-    oGui.setEndOfDirectory()   
 		
 def showMoviesSearch(sSearch = ''):
     oGui = cGui()
