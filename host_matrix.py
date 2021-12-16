@@ -59,9 +59,52 @@ def get_url_meta(URL):
 def getHosts():	
     Hosts=[]
 #   Hosts.append(('26','LIVETV','livetv'             ,'1.0 18/01/2021','Live Sports'              ,'New Host',''))	
-#    Hosts.append(('26','','adkami_com'         ,'1.0 18/01/2021','Animés, Mangas & Séries'  ,'New Host',''))	
-#    Hosts.append(('26','','animecomplet'       ,'1.0 18/01/2021','Series & Anime'           ,'New Host',''))
-    
+    Hosts.append(('21','','aflamfree'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','alarab'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','alfajertv'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','aracinema_co'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','cdrama'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','egyclub'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','ehna'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','familymoviz'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','fnteam'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','halacima'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','panet'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','replay'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','rotana'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','shooflive'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','shoofvod'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','themoviedb_org'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','topimdb'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','tvfun'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','watanflix'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','alarabiya'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','aljazeera'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','arabsciences'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','docarabic'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','geoarabic'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('22','','animeblkom'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('22','','animeslayer'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('22','','animezid'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('22','','cartoonrbi'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('22','','detectiveconanar'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('22','','eyoon'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('22','','fansubs'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('22','','katkoute'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('22','','nightosphere'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('22','','spacepowerfan'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('22','','xsanime'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('25','','ahdaf'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('25','','asgoal'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('25','','beinmatch'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('25','','beinsports_net'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('25','','btolat'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('25','','kingfoot'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('25','','tvnine'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('25','','yallalive'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('25','','yallashoot'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+
+   
     Hosts_=[]
     for (id_,titre,hst_,version_,desc_,up_,image) in Hosts:
         if image=='': image = 'file:///usr/lib/enigma2/python/Plugins/Extensions/IPTVPlayer/tsiplayer/addons/resources2/art/sites/'+hst_+'.png'
@@ -492,4 +535,6 @@ class TSIPHost(TSCBaseHostClass):
             file = open(self.MyPath + 'searchSTR', 'w')
             file.write(input_txt)
             file.close() 
+ 
+
  
