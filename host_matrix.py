@@ -63,6 +63,7 @@ def getHosts():
     Hosts.append(('21','','alarab'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
     Hosts.append(('21','','alfajertv'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
     Hosts.append(('21','','aracinema_co'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
+    Hosts.append(('21','','arbcinema'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
     Hosts.append(('21','','cdrama'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
     Hosts.append(('21','','egyclub'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
     Hosts.append(('21','','ehna'         ,'1.0 18/01/2021','VOD ARAB'  ,'New Host',''))
