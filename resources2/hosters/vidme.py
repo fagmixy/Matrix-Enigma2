@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.handler.requestHandler import cRequestHandler
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.parser import cParser
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.comaddon import VSlog, xbmcgui
@@ -62,8 +63,6 @@ class cHoster(iHoster):
         VSlog(self.__sUrl)
 
         api_call =''
-        
-        #print (self.__sUrl)
         
         oRequest = cRequestHandler(self.__sUrl)
         sHtmlContent = oRequest.request()

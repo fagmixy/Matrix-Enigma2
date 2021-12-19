@@ -14,7 +14,7 @@ SITE_IDENTIFIER = 'mycima'
 SITE_NAME = 'mycima'
 SITE_DESC = 'arabic vod'
  
-URL_MAIN = 'https://mycima.ink/'
+URL_MAIN = 'https://mycima.ink'
 
 MOVIE_TOP = (URL_MAIN + '/category/افلام/movies-english-افلام-اجنبي/list/best/', 'showMovies')
 MOVIE_POP = (URL_MAIN + '/category/افلام/movies-english-افلام-اجنبي/list/top/', 'showMovies')
@@ -109,7 +109,7 @@ def load():
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', "https://mycima.ink/category/%d9%85%d8%b5%d8%a7%d8%b1%d8%b9%d8%a9-%d8%ad%d8%b1%d8%a9/")
     oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'مصارعة', 'wwe.png', oOutputParameterHandler)
-
+	
     oGui.setEndOfDirectory()
  
 def showSeriesSearch():
@@ -556,9 +556,8 @@ def showHosters():
 	
     if (aResult[0] == True):
         for aEntry in aResult[1]:
-            
             sHosterUrl = aEntry[0]
-            sHosterUrl = sHosterUrl.replace("upbbom","ddsdd").replace("uppbom","ddsdd")
+            sHosterUrl = sHosterUrl.replace("upbem","ddsdd").replace("upbem","ddsdd")
             sTitle = sMovieTitle+' ['+aEntry[2]+aEntry[1]+'] '
             if sHosterUrl.startswith('//'):
                 sHosterUrl = 'http:' + sHosterUrl

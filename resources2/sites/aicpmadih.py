@@ -10,6 +10,7 @@ from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.handler.reque
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.comaddon import progress, isMatrix
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.parser import cParser
 import re
+#,xbmc
 
 SITE_IDENTIFIER = 'aicpmadih'
 SITE_NAME = 'aicpmadih'
@@ -25,6 +26,10 @@ def load():
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', 'http://venom/')
     oGui.addDir(SITE_IDENTIFIER, 'showSearch', 'Search', 'search.png', oOutputParameterHandler)
+    
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', ISLAM_NASHEED[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'إسلاميات', 'islm.png', oOutputParameterHandler)
 
             
     oGui.setEndOfDirectory()

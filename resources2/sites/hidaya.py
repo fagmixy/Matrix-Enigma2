@@ -25,6 +25,11 @@ def load():
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', 'http://venom/')
     oGui.addDir(SITE_IDENTIFIER, 'showSearch', 'Recherche', 'search.png', oOutputParameterHandler)
+    
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', ISLAM_QURAN[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'إسلاميات', 'islm.png', oOutputParameterHandler)
+
 
             
     oGui.setEndOfDirectory()
