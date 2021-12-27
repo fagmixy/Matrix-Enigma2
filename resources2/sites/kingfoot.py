@@ -11,6 +11,7 @@ from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.util import c
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.gui.guiElement import cGuiElement
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.player import cPlayer
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.util import Unquote, Quote, QuotePlus
+#import xbmcgui
 import re
 import unicodedata
  
@@ -18,11 +19,11 @@ SITE_IDENTIFIER = 'kingfoot'
 SITE_NAME = 'kingfoot'
 SITE_DESC = 'arabic vod'
  
-URL_MAIN = 'https://king-shoot.com/'
+URL_MAIN = 'https://king-shoot.tv/'
 
 
 
-SPORT_LIVE = ('https://king-shoot.tv/today-matches/', 'showMovies')
+SPORT_LIVE = ('https://king-shoot.tv:2096/today-matches/', 'showMovies')
 
 
 

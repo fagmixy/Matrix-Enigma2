@@ -13,25 +13,25 @@ SITE_IDENTIFIER = 'faselhd'
 SITE_NAME = 'faselhd'
 SITE_DESC = 'arabic vod'
  
-URL_MAIN = 'https://www.faselhd.pro'
+URL_MAIN = 'https://www.faselhd.io'
 
-MOVIE_EN = ('https://www.faselhd.pro/movies', 'showMovies')
-MOVIE_HI = ('https://www.faselhd.pro/hindi', 'showMovies')
-MOVIE_ASIAN = ('https://www.faselhd.pro/asian-movies', 'showMovies')
-KID_MOVIES = ('https://www.faselhd.pro/dubbed-movies', 'showMovies')
-SERIE_EN = ('https://www.faselhd.pro/series', 'showSeries')
-REPLAYTV_NEWS = ('https://www.faselhd.pro/tvshows', 'showSeries')
-ANIM_MOVIES = ('https://www.faselhd.pro/anime-movies', 'showMovies')
+MOVIE_EN = (URL_MAIN + '/movies', 'showMovies')
+MOVIE_HI = (URL_MAIN + '/hindi', 'showMovies')
+MOVIE_ASIAN = (URL_MAIN + '/asian-movies', 'showMovies')
+KID_MOVIES = (URL_MAIN + '/dubbed-movies', 'showMovies')
+SERIE_EN = (URL_MAIN + '/series', 'showSeries')
+REPLAYTV_NEWS = (URL_MAIN + '/tvshows', 'showSeries')
+ANIM_MOVIES = (URL_MAIN + '/anime-movies', 'showMovies')
 SERIE_ASIA = ('https://www.faselhd.co/asian-series', 'showSeries')
-ANIM_NEWS = ('https://www.faselhd.pro/anime', 'showAnimes')
-DOC_NEWS = ('https://www.faselhd.pro/movies-cats/%D9%88%D8%AB%D8%A7%D8%A6%D9%82%D9%8A', 'showMovies')
-DOC_SERIES = ('https://www.faselhd.pro/series_genres/documentary', 'showSeries')
-MOVIE_TOP = ('https://www.faselhd.pro/movies_top_votes', 'showMovies')
-MOVIE_POP = ('https://www.faselhd.pro/movies_top_views', 'showMovies')
+ANIM_NEWS = (URL_MAIN + '/anime', 'showAnimes')
+DOC_NEWS = (URL_MAIN + '/movies-cats/%D9%88%D8%AB%D8%A7%D8%A6%D9%82%D9%8A', 'showMovies')
+DOC_SERIES = (URL_MAIN + '/series_genres/documentary', 'showSeries')
+MOVIE_TOP = (URL_MAIN + '/movies_top_votes', 'showMovies')
+MOVIE_POP = (URL_MAIN + '/movies_top_views', 'showMovies')
 
-URL_SEARCH = ('https://www.faselhd.pro/?s=', 'showSeries')
-URL_SEARCH_MOVIES = ('https://www.faselhd.pro/?s=%D9%81%D9%8A%D9%84%D9%85+', 'showMovies')
-URL_SEARCH_SERIES = ('https://www.faselhd.pro/?s=%D9%85%D8%B3%D9%84%D8%B3%D9%84+', 'showSeries')
+URL_SEARCH = (URL_MAIN + '/?s=', 'showSeries')
+URL_SEARCH_MOVIES = (URL_MAIN + '/?s=%D9%81%D9%8A%D9%84%D9%85+', 'showMovies')
+URL_SEARCH_SERIES = (URL_MAIN + '/?s=%D9%85%D8%B3%D9%84%D8%B3%D9%84+', 'showSeries')
 FUNCTION_SEARCH = 'showMovies'
  
 def load():
@@ -95,7 +95,7 @@ def showSearch():
  
     sSearchText = oGui.showKeyBoard()
     if (sSearchText != False):
-        sUrl = 'https://www.faselhd.pro/?s=%D9%81%D9%8A%D9%84%D9%85+'+sSearchText
+        sUrl = URL_MAIN + '/?s=%D9%81%D9%8A%D9%84%D9%85+'+sSearchText
         showMovies(sUrl)
         oGui.setEndOfDirectory()
         return
@@ -105,7 +105,7 @@ def showSeriesSearch():
  
     sSearchText = oGui.showKeyBoard()
     if (sSearchText != False):
-        sUrl = 'https://www.faselhd.pro/?s=%D9%85%D8%B3%D9%84%D8%B3%D9%84+'+sSearchText
+        sUrl = URL_MAIN + '/?s=%D9%85%D8%B3%D9%84%D8%B3%D9%84+'+sSearchText
         showSeries(sUrl)
         oGui.setEndOfDirectory()
         return
@@ -295,7 +295,7 @@ def showSeasons():
         for aEntry in aResult[1]:
             postid = aEntry[0]
             nume = aEntry[3].replace("موسم "," S")
-            link = 'https://www.faselhd.pro/series-ajax/?_action=get_season_list&_post_id='+postid
+            link = URL_MAIN + '/series-ajax/?_action=get_season_list&_post_id='+postid
  
             sTitle = aEntry[2]+nume           
             sTitle = sTitle.replace("مشاهدة","").replace("مسلسل","").replace("انمى","").replace("مترجم","").replace("فيلم","").replace("مشاهدة","").replace("مسلسل","").replace("انمي","").replace("مترجمة","").replace("مترجم","").replace("فيلم","").replace("والأخيرة","").replace("مدبلج للعربية","مدبلج").replace("والاخيرة","").replace("كاملة","").replace("حلقات كاملة","").replace("اونلاين","").replace("مباشرة","").replace("انتاج ","").replace("جودة عالية","").replace("كامل","").replace("HD","").replace("السلسلة الوثائقية","").replace("الفيلم الوثائقي","").replace("اون لاين","").replace("برنامج","")
@@ -334,11 +334,11 @@ def showEpisodes():
     import requests
 
     postdata = {'seasonID':postid}
-    link = 'https://www.faselhd.pro/series-ajax/?_action=get_season_list&_post_id='+postid
-    headers = {'Host': 'www.faselhd.pro',
+    link = URL_MAIN + '/series-ajax/?_action=get_season_list&_post_id='+postid
+    headers = {'Host': 'www.faselhd.io',
 							'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Mobile Safari/537.36',
 							'Referer': sUrl,
-							'origin': 'https://www.faselhd.pro'}
+							'origin': URL_MAIN}
     s = requests.Session() 	
     r = s.post(link,data = postdata)
     sHtmlContent = r.content 

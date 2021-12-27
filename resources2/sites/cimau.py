@@ -13,7 +13,7 @@ SITE_IDENTIFIER = 'cimau'
 SITE_NAME = 'cima4u'
 SITE_DESC = 'arabic vod'
  
-URL_MAIN = 'https://w.cima4u.ws'
+URL_MAIN = 'https://ww.cima4u.ws'
 
 
 RAMADAN_SERIES = (URL_MAIN + '/category/مسلسلات-series/مسلسلات-عربية-arabic-series/رمضان-2021/', 'showSeries')
@@ -32,8 +32,7 @@ SERIE_ASIA = (URL_MAIN + '/category/مسلسلات-series/مسلسلات-اسي�
 
 SERIE_EN = (URL_MAIN + '/category/مسلسلات-series/مسلسلات-اجنبي-english/', 'showSeries')
 SERIE_AR = (URL_MAIN + '/category/%D9%85%D8%B3%D9%84%D8%B3%D9%84%D8%A7%D8%AA-series/%D9%85%D8%B3%D9%84%D8%B3%D9%84%D8%A7%D8%AA-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-arabic-series/', 'showSeries')
-SERIE_HEND = (URL_MAIN + '/23.%D9%85%D8%B3%D9%84%D8%B3%D9%84%D8%A7%D8%AA+%D9%87%D9%86%D8%AF%D9%8A%D8%A9+%D9%85%D8%AA%D8%B1%D8%AC%D9%85%D8%A9.html', 'showSeries')
-SERIE_HEND_AR = (URL_MAIN + '/22.%D9%85%D8%B3%D9%84%D8%B3%D9%84%D8%A7%D8%AA+%D9%87%D9%86%D8%AF%D9%8A%D8%A9+%D9%85%D8%AF%D8%A8%D9%84%D8%AC%D8%A9.html', 'showSeries')
+SERIE_HEND = (URL_MAIN + '/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-series/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d9%87%d9%86%d8%af%d9%8a%d8%a9-series-indian/', 'showSeries')
 
 
 ANIM_NEWS = (URL_MAIN + '/category/مسلسلات-series/مسلسلات-كرتون-anime-series/', 'showSeries')
@@ -87,6 +86,10 @@ def load():
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', MOVIE_FAM[0])
     oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام عائلية', 'film.png', oOutputParameterHandler)
+ 
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + '/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%a7%d8%ac%d9%86%d8%a8%d9%8a-movies-english/netflix-movies/')
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies' ,'أفلام نتفليكس', 'film.png', oOutputParameterHandler)
 
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', SERIE_EN[0])
@@ -109,8 +112,12 @@ def load():
     oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'مسلسلات هندية', 'mslsl.png', oOutputParameterHandler)
 
     oOutputParameterHandler = cOutputParameterHandler()
-    oOutputParameterHandler.addParameter('siteUrl', SERIE_HEND_AR[0])
-    oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'مسلسلات هندية مدبلجة', 'mslsl.png', oOutputParameterHandler)
+    oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + '/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-series/latino-mexico/')
+    oGui.addDir(SITE_IDENTIFIER, 'showSeries' ,'مسلسلات لاتينية و مكسيكية', 'mslsl.png', oOutputParameterHandler)
+    
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + '/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-series/series-netflix/')
+    oGui.addDir(SITE_IDENTIFIER, 'showSeries' ,'مسلسلات نتفليكس', 'mslsl.png', oOutputParameterHandler)
 
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', ANIM_NEWS[0])
@@ -135,6 +142,10 @@ def load():
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', SPORT_WWE[0])
     oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'مصارعة', 'wwe.png', oOutputParameterHandler) 
+	
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + '/category/%d8%a7%d8%ae%d8%b1%d9%89-other/theater/')
+    oGui.addDir(SITE_IDENTIFIER, 'showSeries' ,'مسرحيات', 'msrh.png', oOutputParameterHandler)
  
     oGui.setEndOfDirectory()
  
@@ -625,7 +636,7 @@ def showEpisodes():
     aResult = oParser.parse(sHtmlContent,sPattern)
     if (aResult[0] == True):
         m3url = aResult[1][0] 
-        if 'live'  in m3url: 
+        if 'Episode'  in m3url: 
             m3url = aResult[1][0] 
             oRequest = cRequestHandler(m3url)
             sHtmlContent = oRequest.request()

@@ -13,22 +13,23 @@ SITE_IDENTIFIER = 'lodynet'
 SITE_NAME = 'lodynet'
 SITE_DESC = 'arabic vod'
  
-URL_MAIN = 'https://www.lodynet.co/'
+URL_MAIN = 'https://m.lodynet.art'
 
-MOVIE_TURK = ('https://www.lodynet.cam/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%aa%d8%b1%d9%83%d9%8a%d8%a9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/', 'showMovies')
-MOVIE_HI = ('https://www.lodynet.cam/category/%d8%a7%d9%84%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%a7%d9%84%d9%87%d9%86%d8%af%d9%8a%d8%a9-%d8%a7%d9%84%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/', 'showMovies')
-MOVIE_ASIAN = ('https://m.lodynet.art/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%a7%d8%b3%d9%8a%d9%88%d9%8a%d8%a9-a/', 'showMovies')
-KID_MOVIES = ('https://www.lodynet.cam/category/%d8%a7%d9%86%d9%8a%d9%85%d9%8a/', 'showMovies')
-SERIE_TR = ('https://m.lodynet.art/turkish-series-1a/', 'showSerie')
-SERIE_TR_AR = ('https://m.lodynet.art/dubbed-turkish-series-c/', 'showSerie')
-SERIE_HEND = ('https://lodynet.cam:2053/dubbed-indian-series-c/', 'showSerie')
-SERIE_HEND_AR = ('https://www.lodynet.cam/dubbed-indian-series-a/', 'showSeries')
-SERIE_ASIA = ('https://lodynet.cam:2053/tag/new-asia/', 'showSerie')
-SERIE_LATIN = ('https://www.lodynet.cam/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d9%85%d9%83%d8%b3%d9%8a%d9%83%d9%8a%d8%a9-a/', 'showSerie')
+MOVIE_TURK = (URL_MAIN + '/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%aa%d8%b1%d9%83%d9%8a%d8%a9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85/', 'showMovies')
+MOVIE_HI = (URL_MAIN + '/category/%d8%a7%d9%84%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%a7%d9%84%d9%87%d9%86%d8%af%d9%8a%d8%a9-%d8%a7%d9%84%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/', 'showMovies')
+MOVIE_ASIAN = (URL_MAIN + '/category/%d8%a7%d9%81%d9%84%d8%a7%d9%85-%d8%a7%d8%b3%d9%8a%d9%88%d9%8a%d8%a9-a/', 'showMovies')
+KID_MOVIES = (URL_MAIN + '/category/%d8%a7%d9%86%d9%8a%d9%85%d9%8a/', 'showMovies')
+SERIE_TR = (URL_MAIN + '/turkish-series-1a/', 'showSerie')
+SERIE_TR_AR = (URL_MAIN + '/dubbed-turkish-series-i/', 'showSerie')
+SERIE_HEND = (URL_MAIN + '/bالمسلسلات-هندية-مترجمة/', 'showSerie')
+SERIE_HEND_AR = (URL_MAIN + '/dubbed-indian-series-m6/', 'showSerie')
+SERIE_ASIA = (URL_MAIN + '/korean-series/', 'showSerie')
+SERIE_PAK = (URL_MAIN + '/category/المسلسلات-باكستانية/', 'showSerie')
+SERIE_LATIN = (URL_MAIN + '/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d9%85%d9%83%d8%b3%d9%8a%d9%83%d9%8a%d8%a9-a/', 'showSerie')
 SERIE_GENRES = (True, 'showGenres')
 
-URL_SEARCH = ('https://m.lodynet.art/search/', 'showMovies')
-URL_SEARCH_SERIES = ('https://m.lodynet.art/search/', 'showSearchSerie')
+URL_SEARCH = (URL_MAIN + '/search/', 'showMovies')
+URL_SEARCH_SERIES = (URL_MAIN + '/search/', 'showSearchSerie')
 FUNCTION_SEARCH = 'showMovies'
  
 def load():
@@ -60,20 +61,36 @@ def load():
 
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', SERIE_TR[0])
-    oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'مسلسلات تركية', 'mslsl.png', oOutputParameterHandler)
+    oGui.addDir(SITE_IDENTIFIER, 'showSerie', 'مسلسلات تركية', 'mslsl.png', oOutputParameterHandler)
 
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', SERIE_HEND[0])
-    oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'مسلسلات هندية', 'mslsl.png', oOutputParameterHandler)
+    oGui.addDir(SITE_IDENTIFIER, 'showSerie', 'مسلسلات هندية', 'mslsl.png', oOutputParameterHandler)
 
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', SERIE_HEND_AR[0])
-    oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'مسلسلات هندية مدبلجة', 'mslsl.png', oOutputParameterHandler)
+    oGui.addDir(SITE_IDENTIFIER, 'showSerie', 'مسلسلات هندية مدبلجة', 'mslsl.png', oOutputParameterHandler)
+    
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', SERIE_PAK [0])
+    oGui.addDir(SITE_IDENTIFIER, 'showSerie', 'SERIE_PAK ', 'mslsl.png', oOutputParameterHandler)
     
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', SERIE_LATIN[0])
-    oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'مسلسلات لاتنية', 'mslsl.png', oOutputParameterHandler)
+    oGui.addDir(SITE_IDENTIFIER, 'showSerie', 'مسلسلات لاتنية', 'mslsl.png', oOutputParameterHandler)
 
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + '/category/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%b5%d9%8a%d9%86%d9%8a%d8%a9-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/')
+    oGui.addDir(SITE_IDENTIFIER, 'showSerie' ,'مسلسلات صينية', 'mslsl.png', oOutputParameterHandler)
+    
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + '/korean-series/')
+    oGui.addDir(SITE_IDENTIFIER, 'showSerie' ,'مسلسلات كورية', 'mslsl.png', oOutputParameterHandler)
+    
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + '/%d9%85%d8%b4%d8%a7%d9%87%d8%af%d8%a9-%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-%d8%aa%d8%a7%d9%8a%d9%84%d9%86%d8%af%d9%8a%d8%a9/')
+    oGui.addDir(SITE_IDENTIFIER, 'showSerie' ,'مسلسلات تايلاندية', 'mslsl.png', oOutputParameterHandler)
+	
     oGui.setEndOfDirectory()
  
 def showSearch():

@@ -4,7 +4,7 @@ from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.gui.gui impor
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.handler.inputParameterHandler import cInputParameterHandler
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.handler.outputParameterHandler import cOutputParameterHandler
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.handler.requestHandler import cRequestHandler
-from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.comaddon import progress
+from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.comaddon import progress, VSlog
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.parser import cParser
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.player import cPlayer
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.gui.guiElement import cGuiElement
@@ -36,7 +36,22 @@ def load():
     oOutputParameterHandler.addParameter('siteUrl', 'http://venom/')
     oGui.addDir(SITE_IDENTIFIER, 'showSearch', 'Search', 'search.png', oOutputParameterHandler)
 
-            
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', MOVIE_AR[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'أفلام عربية', 'film.png', oOutputParameterHandler)
+ 
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', SERIE_AR[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'مسلسلات عربية', 'mslsl.png', oOutputParameterHandler)
+    
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', REPLAYTV_NEWS[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'برامج تلفزيونية', 'brmg.png', oOutputParameterHandler)
+    
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', REPLAYTV_PLAY[0])
+    oGui.addDir(SITE_IDENTIFIER, 'showEps', 'مسرحيات', 'msrh.png', oOutputParameterHandler)
+  
     oGui.setEndOfDirectory()
  
 def showSearch():
@@ -188,7 +203,7 @@ def showEps():
  #  ([^<]+) (.+?) .+?
 
     sPattern = '<a href="(.+?)" class="item">.+?<img class="lozad" data-src="(.+?)">.+?<h3>(.+?)</h3>'
- 
+
     oParser = cParser()
     aResult = oParser.parse(sHtmlContent, sPattern)
 	
@@ -202,11 +217,13 @@ def showEps():
             if progress_.iscanceled():
                 break
 
-            sTitle = aEntry[2].replace("مشاهدة","").replace("مسلسل","").replace("انمي","").replace("مترجمة","").replace("مترجم","").replace("فيلم","").replace("والأخيرة","").replace("مدبلج للعربية","مدبلج").replace("برنامج","").replace("والاخيرة","").replace("كاملة","").replace("حلقات كاملة","").replace("اونلاين","").replace("مباشرة","").replace("انتاج ","").replace("جودة عالية","").replace("كامل","").replace("HD","").replace("السلسلة الوثائقية","").replace("الفيلم الوثائقي","").replace("اون لاين","")
+            sTitle = aEntry[2].replace("الحلقة "," E").replace("حلقة "," E").replace("مشاهدة","").replace("مسلسل","").replace("انمي","").replace("مترجمة","").replace("مترجم","").replace("فيلم","").replace("والأخيرة","").replace("مدبلج للعربية","مدبلج").replace("برنامج","").replace("والاخيرة","").replace("كاملة","").replace("حلقات كاملة","").replace("اونلاين","").replace("مباشرة","").replace("انتاج ","").replace("جودة عالية","").replace("كامل","").replace("HD","").replace("السلسلة الوثائقية","").replace("الفيلم الوثائقي","").replace("اون لاين","")
             
             siteUrl = aEntry[0]
             sThumbnail = aEntry[1]
             sInfo = ''
+            if ':' in aEntry[2]:
+               sTitle = sTitle.split(':')[1]+sMovieTitle
 
 
             oOutputParameterHandler.addParameter('siteUrl',siteUrl)
@@ -239,11 +256,11 @@ def showHosters():
     sThumbnail = oInputParameterHandler.getValue('sThumbnail')
     
     oRequestHandler = cRequestHandler(sUrl)
-    sHtmlContent = oRequestHandler.request();
+    sHtmlContent = oRequestHandler.request()
 
     oParser = cParser()
             
-    sPattern =  'href="(.+?)" class="btn play">' 
+    sPattern =  '<iframe class="iframe-tv" id="iframe-tv" scrolling = "no" src="(.+?)"  allow="autoplay"' 
     aResult = oParser.parse(sHtmlContent,sPattern)
     if (aResult[0] == True):
         m3url = aResult[1][0]
@@ -255,14 +272,6 @@ def showHosters():
     oParser = cParser()
        
       # (.+?) ([^<]+) .+?     
-    sPattern =  'src="(.+?)"  allow="autoplay"' 
-    aResult = oParser.parse(sHtmlContent,sPattern)
-    if (aResult[0] == True):
-        m3url = aResult[1][0]
-        if m3url.startswith('//'):
-           m3url = 'http:' + m3url 	
-        oRequest = cRequestHandler(m3url)
-        sHtmlContent = oRequest.request()
     #recup du lien mp4
     sPattern = 'src: "(.+?)",'
     oParser = cParser()
