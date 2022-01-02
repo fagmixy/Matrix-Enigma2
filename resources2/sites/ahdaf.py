@@ -28,7 +28,7 @@ def load():
     
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', SPORT_FOOT[0])
-    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'رياضة', 'sport.png', oOutputParameterHandler)
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'ملخصات و أهداف', 'sport.png', oOutputParameterHandler)
     
     oGui.setEndOfDirectory()
 
@@ -158,12 +158,10 @@ def showHosters():
                     sHosterUrl = resp.url
                 except:
                     pass
-            
             oHoster = cHosterGui().checkHoster(sHosterUrl)
             if (oHoster != False):
                 oHoster.setDisplayName(sMovieTitle)
                 oHoster.setFileName(sMovieTitle)
                 cHosterGui().showHoster(oGui, oHoster, sHosterUrl, sThumbnail)
 
-		
     oGui.setEndOfDirectory()

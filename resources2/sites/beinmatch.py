@@ -28,7 +28,11 @@ def load():
 
     oOutputParameterHandler = cOutputParameterHandler()
     oOutputParameterHandler.addParameter('siteUrl', SPORT_LIVE[0])
-    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'رياضة', 'sport.png', oOutputParameterHandler)
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'البث المباشر', 'sport.png', oOutputParameterHandler)
+    
+    oOutputParameterHandler = cOutputParameterHandler()
+    oOutputParameterHandler.addParameter('siteUrl', 'https://beinmatch.best/home/videos')
+    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'ملخصات و أهداف', 'sport.png', oOutputParameterHandler)
   
     oGui.setEndOfDirectory()
 
