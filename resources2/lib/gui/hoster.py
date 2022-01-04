@@ -197,9 +197,11 @@ class cHosterGui:
             return self.getHoster('arabseed')
         if ('faselhd' in sHostName):
             return self.getHoster('faselhd')
+        if ('stardima' in sHostName):
+            return self.getHoster('stardima')    
         if ('sama-share' in sHostName):
             return self.getHoster('samashare')
-        if ('anafasts' in sHostName):
+        if ('anafast' in sHostName):
             return self.getHoster('anafasts')
         if ('streamz' in sHostName):
             return self.getHoster('streamz')
@@ -264,7 +266,7 @@ class cHosterGui:
         if ('vadbom' in sHostName):
             return self.getHoster('vidbm') 
         if ('vidbam' in sHostName):
-            return self.getHoster('vidbem')
+            return self.getHoster('vidbm')
         if ('vedpom' in sHostName):
             return self.getHoster('vidbem')
         if ('vadshar' in sHostName):
@@ -657,8 +659,6 @@ class cHosterGui:
         if ('king-shoot.xyz' in sHostName):
             return self.getHoster('lien_direct')
         if ('fansubs' in sHostName):
-            return self.getHoster('lien_direct')
-        if ('stardima' in sHostName):
             return self.getHoster('lien_direct')
         if ('us.archive.' in sHostName):
             return self.getHoster('lien_direct')

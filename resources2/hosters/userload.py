@@ -8,7 +8,6 @@ from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.parser import
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.aadecode import AADecoder
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.packer import cPacker
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.comaddon import VSlog
-
 import requests, re 
 
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:83.0) Gecko/20100101 Firefox/83.0"

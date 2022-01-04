@@ -16,8 +16,6 @@ SITE_DESC = 'sport vod'
 URL_MAIN = 'https://www.btolat.com'
 SPORT_FOOT = ('https://www.btolat.com/video', 'showMovies')
 
-SPORT_SPORTS = ('http://', 'load')
-
 FUNCTION_SEARCH = 'showMovies'
 
 def load():
@@ -31,10 +29,6 @@ def load():
     oOutputParameterHandler.addParameter('siteUrl', SPORT_FOOT[0])
     oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'ملخصات و أهداف', 'sport.png', oOutputParameterHandler)
  
-    oOutputParameterHandler = cOutputParameterHandler()
-    oOutputParameterHandler.addParameter('siteUrl', 'https://www.btolat.com/matches')
-    oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'البث المباشر', 'sport.png', oOutputParameterHandler)
-
     oGui.setEndOfDirectory()
   
 def showSearch():

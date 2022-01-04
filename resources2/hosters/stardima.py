@@ -13,7 +13,7 @@ UA = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:68.0) Gecko/20100101 Firefox/68.0'
 class cHoster(iHoster):
 
     def __init__(self):
-        self.__sDisplayName = 'moshahda'
+        self.__sDisplayName = 'stardima'
         self.__sFileName = self.__sDisplayName
         self.__sHD = ''
 
@@ -30,7 +30,7 @@ class cHoster(iHoster):
         return self.__sFileName
 
     def getPluginIdentifier(self):
-        return 'moshahda'
+        return 'stardima'
 
     def setHD(self, sHD):
         self.__sHD = ''
@@ -52,8 +52,6 @@ class cHoster(iHoster):
 
     def setUrl(self, sUrl):
         self.__sUrl = str(sUrl)
-        if not "embed" in self.__sUrl:
-               self.__sUrl = self.__sUrl.replace("https://moshahda.net/","https://moshahda.net/embed-")
 
     def checkUrl(self, sUrl):
         return True
@@ -65,15 +63,10 @@ class cHoster(iHoster):
         return self.__getMediaLinkForGuest()
 
     def __getMediaLinkForGuest(self):
-        sReferer = ""
-        url = self.__sUrl.split('|Referer=')[0]
-        sReferer = self.__sUrl.split('|Referer=')[1]
-        
-        oRequest = cRequestHandler(url)
-        oRequest.addHeaderEntry('user-agent',UA)
-        oRequest.addHeaderEntry('Referer',sReferer)
-        sHtmlContent = oRequest.request()
         VSlog(self.__sUrl)
+        
+        oRequest = cRequestHandler(self.__sUrl)
+        sHtmlContent = oRequest.request()
         
         oParser = cParser()
         
@@ -81,29 +74,24 @@ class cHoster(iHoster):
         aResult = oParser.parse(sHtmlContent, sPattern)
         if (aResult[0] == True):
             sHtmlContent = cPacker().unpack(aResult[1][0])
+            sHtmlContent = sHtmlContent.replace('\\', '')
         
             # (.+?) .+?
-        sPattern = 'file: "(.+?)"}'
+        sPattern = "size:'(.+?)',src:'(.+?)',"
         aResult = oParser.parse(sHtmlContent, sPattern)
         
         api_call = False
 
         if (aResult[0] == True):
-            oRequest = cRequestHandler(aResult[1][0])
-            data = oRequest.request()
-        	
-            sPattern =  ',RESOLUTION=(.+?),.+?https(.+?).15'
-            aResult = oParser.parse(data, sPattern)
-            if (aResult[0] == True):
-               url=[]
-               qua=[]
-               for i in aResult[1]:
-                  url.append("https"+str(i[1])+".15")
-                  qua.append(str(i[0]).split('x')[1]+"p")
-               api_call = dialog().VSselectqual(qua, url)
- 
+            url=[]
+            qua=[]
+            for i in aResult[1]:
+                  url.append(str(i[1]))
+                  qua.append(str(i[0])+"p")
+
+            api_call = dialog().VSselectqual(qua, url)
+
             if (api_call):
-                return True, api_call + '|User-Agent=' + UA + '&Referer=' + sReferer
-            
+                return True, api_call
         return False, False
    
