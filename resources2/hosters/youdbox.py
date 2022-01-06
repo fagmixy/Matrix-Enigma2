@@ -1,3 +1,5 @@
+﻿#-*- coding: utf-8 -*-
+#zombi https://github.com/zombiB/zombi-addons/
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.handler.requestHandler import cRequestHandler
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.parser import cParser
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.hosters.hoster import iHoster
@@ -70,14 +72,14 @@ class cHoster(iHoster):
         _id = self.__sUrl.split('/')[-1].replace(".html","")
         Sgn=requests.Session()
         UA = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:68.0) Gecko/20100101 Firefox/68.0'
-        hdr = {'Host': 'youdbox.org',
+        hdr = {'Host': 'yodbox.com',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:84.0) Gecko/20100101 Firefox/84.0',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
         'Accept-Language': 'fr,fr-FR;q=0.8,en-US;q=0.5,en;q=0.3',
         'Accept-Encoding': 'gzip, deflate',
         'Content-Type': 'application/x-www-form-urlencoded',
         'Content-Length': '111',
-        'Origin': 'https://youdbox.org',
+        'Origin': 'https://yodbox.com',
         'Connection': 'keep-alive',
         'Referer': self.__sUrl,
         'Upgrade-Insecure-Requests': '1'}
@@ -90,7 +92,7 @@ class cHoster(iHoster):
         	"method_premium": "",
         	"adblock_detected": "1"}
         _r = Sgn.post(self.__sUrl,headers=hdr,data=prm)
-        sHtmlContent = _r.content
+        sHtmlContent = _r.content.decode('utf8',errors='ignore')
         oParser = cParser() 
         sPattern = '<a href="([^<]+)"><button class="lastbtn"><span>Free Download</span></button>'
         aResult = oParser.parse(sHtmlContent,sPattern)
