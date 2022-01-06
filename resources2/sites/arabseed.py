@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+﻿#-*- coding: utf-8 -*-
 #zombi https://github.com/zombiB/zombi-addons/
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.gui.hoster import cHosterGui
 from Plugins.Extensions.IPTVPlayer.tsiplayer.addons.resources2.lib.gui.gui import cGui
@@ -130,15 +130,15 @@ def load():
     oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'مسرحيات', 'msrh.png', oOutputParameterHandler)
 
     oOutputParameterHandler = cOutputParameterHandler()
-    oOutputParameterHandler.addParameter('siteUrl', 'https://arabseed.ws/category/%d9%85%d8%b5%d8%a7%d8%b1%d8%b9%d9%87/')
+    oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + '/category/%d9%85%d8%b5%d8%a7%d8%b1%d8%b9%d9%87/')
     oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'مصارعة', 'wwe.png', oOutputParameterHandler)
     
     oOutputParameterHandler = cOutputParameterHandler()
-    oOutputParameterHandler.addParameter('siteUrl', 'https://arabseed.ws/category/netfilx/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-netfilz/')
+    oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + '/category/netfilx/%d9%85%d8%b3%d9%84%d8%b3%d9%84%d8%a7%d8%aa-netfilz/')
     oGui.addDir(SITE_IDENTIFIER, 'showSeries', 'مسلسلات Netfilx', 'mslsl.png', oOutputParameterHandler)
     
     oOutputParameterHandler = cOutputParameterHandler()
-    oOutputParameterHandler.addParameter('siteUrl', 'https://arabseed.ws/category/netfilx/%d8%a7%d9%81%d9%84%d8%a7%d9%85-netfilx/')
+    oOutputParameterHandler.addParameter('siteUrl', URL_MAIN + '/category/netfilx/%d8%a7%d9%81%d9%84%d8%a7%d9%85-netfilx/')
     oGui.addDir(SITE_IDENTIFIER, 'showMovies', 'افلام Netfilx', 'film.png', oOutputParameterHandler)
              
     oGui.setEndOfDirectory()
@@ -568,6 +568,43 @@ def showHosters():
     sHtmlContent = oRequestHandler.request();
 
     oParser = cParser()
+            
+    sPattern =  '<a href="([^<]+)" class="watchBTn">' 
+    aResult = oParser.parse(sHtmlContent,sPattern)
+    if (aResult[0] == True):
+        m3url2 = aResult[1][0] 
+        oRequest = cRequestHandler(m3url2)
+        sHtmlContent2 = oRequest.request()
+
+
+    # (.+?) .+? ([^<]+)
+               
+    sPattern = 'fa-play"></i> <span>(.+?)</span>.+?<iframe.+?src="(.+?)"'
+    oParser = cParser()
+    aResult = oParser.parse(sHtmlContent2, sPattern)
+    VSlog(aResult)
+
+
+	
+    if (aResult[0] == True):
+        for aEntry in aResult[1]:
+        
+            url = aEntry[1]
+            sTitle = aEntry[0] .replace('"',"")
+            sTitle = ('%s  [COLOR coral]%s[/COLOR]') % (sMovieTitle, sTitle)
+            if url.startswith('//'):
+               url = 'https:' + url
+				
+					
+            
+            sHosterUrl = url
+            if 'userload' in sHosterUrl:
+                sHosterUrl = sHosterUrl + "|Referer=" + URL_MAIN  
+            oHoster = cHosterGui().checkHoster(sHosterUrl)
+            if (oHoster != False):
+               oHoster.setDisplayName(sTitle)
+               oHoster.setFileName(sMovieTitle)
+               cHosterGui().showHoster(oGui, oHoster, sHosterUrl, sThumb)
             
     sPattern =  '<a href="([^<]+)" class="downloadBTn">' 
     aResult = oParser.parse(sHtmlContent,sPattern)
