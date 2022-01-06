@@ -201,6 +201,8 @@ class cHosterGui:
             return self.getHoster('stardima')    
         if ('sama-share' in sHostName):
             return self.getHoster('samashare')
+        if ('yodbox' in sHostName):
+            return self.getHoster('youdbox') 
         if ('anafast' in sHostName):
             return self.getHoster('anafasts')
         if ('streamz' in sHostName):
